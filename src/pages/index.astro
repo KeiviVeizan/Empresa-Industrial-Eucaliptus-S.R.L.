@@ -1,4 +1,21 @@
 ---
+const ExtraInformationCards = [
+	{
+		id:1,
+		info: "La Empresa Industrial Eucaliptus SRL (EIECOSS SRL) propia de la Corporación del Seguro Social Militar - COSSMIL, fue constituida como única Planta de Ácido Sulfúrico ubicada en la provincia Tomas Barrón del departamento de Oruro con Oficinas Administrativas en la ciudad de La Paz. Ejecuta sus procesos con disciplina, innovación y altos estándares de calidad internacional con el objetivo de fortalecer las prestaciones de corto plazo de la Gerencia de Seguros, para el personal militar. El socio mayoritario es COSSMIL y el socio minoritario es la empresa EMINCOSS SRL la cual es una empresa propia de COSSMIL dedicada al rubro minero.",
+		image: "/Empresa-Industrial-Eucaliptus-S.R.L./images/Logo-Empresa.svg"
+	},
+	{
+		id: 2,
+		info: "De esta forma la Corporación del Seguro Social Militar “COSSMIL”, con la finalidad de garantizar la sostenibilidad de las prestaciones que otorga a sus beneficiarios decide incursionar institucionalmente en el ámbito industrial, promoviendo y participando de la organización, dirección y funcionamiento de empresas.",
+		image: "/Empresa-Industrial-Eucaliptus-S.R.L./images/img-empresa-1.svg"
+	},
+	{
+		id:3,
+		info: "Con apenas 3 años de trayectoria, Nuestra Empresa Industrial Eucaliptus SRL se ha consolidado como un referente en la producción de ácido sulfúrico de alta calidad. Nuestra empresa inició operaciones el 25 de junio de 2021.",
+		image: "/Empresa-Industrial-Eucaliptus-S.R.L./images/img-empresa-2.svg"
+	}
+]
 ---
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +33,8 @@
 			<article class="init">
 				<header class="head">
 					<nav>
-						<ul>
+						<div class="menu-icon" onclick="bottonMenu()"></div>
+						<ul class="nav-links">
 							<li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./about">Acerca de Nosotros</a></li>
 							<li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./product">Producto</a></li>
 							<li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./" class="about">Inicio</a></li>
@@ -34,24 +52,16 @@
 			<h2>
 				Somos la empresa lider en producción y <br> comercialización de Ácido Sulfurico
 			</h2>
-			<div class="info">
-				<img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/Logo-Empresa.svg" alt="Imagen de la empresa">
-				<p>
-					La Empresa Industrial Eucaliptus SRL (EIECOSS SRL) propia de la Corporación del Seguro Social Militar - COSSMIL, fue constituida como única Planta de Ácido Sulfúrico ubicada en la provincia Tomas Barrón del departamento de Oruro con Oficinas Administrativas en la ciudad de La Paz. Ejecuta sus procesos con disciplina, innovación y altos estándares de calidad internacional con el objetivo de fortalecer las prestaciones de corto plazo de la Gerencia de Seguros, para el personal militar. El socio mayoritario es COSSMIL y el socio minoritario es la empresa EMINCOSS SRL la cual es una empresa propia de COSSMIL dedicada al rubro minero.
-				</p>
-			</div>
-			<div class="info1">
-				<p>
-					De esta forma la Corporación del Seguro Social Militar “COSSMIL”, con la finalidad de garantizar la sostenibilidad de las prestaciones que otorga a sus beneficiarios decide incursionar institucionalmente en el ámbito industrial, promoviendo y participando de la organización, dirección y funcionamiento de empresas.
-				</p>
-				<img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/img-empresa-1.svg" alt="Imagen de la empresa">
-			</div>
-			<div class="info2">
-				<img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/img-empresa-2.svg" alt="">
-				<p>
-					Con apenas 3 años de trayectoria, Nuestra Empresa Industrial Eucaliptus SRL se ha consolidado como un referente en la producción de ácido sulfúrico de alta calidad. Nuestra empresa inició operaciones el 25 de junio de 2021.
-				</p>
-			</div>
+			{
+				ExtraInformationCards.map((ec)=>(
+				<div class={`info info${ec.id}`}>
+					<img src={ec.image} alt="Imagen de la empresa">
+					<p>
+						{ec.info}
+					</p>
+				</div>
+				))
+			}
 		</main>
 		<section class="carru">
 			<h3>
@@ -143,7 +153,7 @@
 	body{
 		height: 100%; 
 		margin: 0;    
-		background: linear-gradient(to bottom, #68778D, #ffffff);
+		background: linear-gradient(to bottom, #68778D, #ffffff);	
 	}
 	ul{
 		list-style-type: none;
@@ -202,7 +212,7 @@
 	}
 	.inicio{
 		background-image: url('/public/images/imagen_de_inicio.svg');
-		background-size: 100%;
+		background-size: 200vh;
 		background-repeat: no-repeat;
 		background-position: center;
 		opacity:0.9;
@@ -423,187 +433,7 @@
 	.slide:hover .caption {
 		opacity: 1;
 	}
-
-	@media (max-width: 481px) {
-		.info{
-			display: flex;
-			flex-direction: column;
-			margin-left: 30px;
-			margin-right: 30px;
-			margin-bottom: 30px;
-		}
-		.info img{
-			width: 100px;
-			height: 100px;
-			margin-bottom: 30px;
-			margin-top: 30px;
-		}
-		.info p{
-			font-size: 12px;
-			font-family: "Myriad Pro Regular";
-			max-width: 90%;
-		}
-		main h2{
-			font-size: 20px;
-			margin: 20px;
-		}
-		main p{
-			font-size: 10px;
-		}
-		.info1{
-			display: flex;
-			flex-direction: column-reverse;
-			align-items: center;
-			justify-content: center;
-		}
-		.info1 img{
-			width: 100px;
-			height: 100px;
-			margin: 30px 0px;
-		}
-		.info1 p{
-			font-size: 12px;
-			font-family: "Myriad Pro Regular";
-			max-width: 80%;
-		}
-		.info2 {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-		}
-		.info2 img {
-			width: 100px;
-			height: 100px;
-			margin: 30px 0px;
-		}
-		.info2 p{
-			font-size: 12px;
-			max-width: 80%;
-			font-family: "Myriad Pro Regular";
-		} 			
-		.init{
-			width: 100%;
-			height: 50%;
-		}
-		.conteiner{
-			font-size: 40px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-		}
-		.slider{
-			max-width: 70%;
-			max-height: 250px;
-		}
-		.head a{
-			font-size: 10px;
-		}
-		.carru h3{
-			font-size: 20px;
-			text-align: center;
-			max-width: 99%;
-		}
-		.foot h3 {
-			font-size: 10px;
-			text-align: center;
-		}
-		.foot img{
-			width: 20px;
-			height: 20px;
-		}
-		footer{
-			height: 150px;
-		}
-	}
-	@media (min-width: 482px) and (max-width: 768px) {
-		.head a{
-			font-size:15px;
-		}
-		h1{
-			font-size: 50px;
-		}
-		.inicio p{
-			font-size: 30px;
-		}
-		main h2 {
-			font-size: 40px;
-		}
-		.info {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction:column;
-			margin: 30px 0px;
-		}
-		.info img{
-			margin-bottom: 30px;
-		}
-		.info p{
-			max-width: 90%;
-		}
-		.info1{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column-reverse;
-			margin: 30px 0px;
-		}
-		.info1 img{
-			margin-bottom: 30px;
-		}
-		.info1 p {
-			max-width: 90%;
-		}
-		.info2{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-			margin: 30px 0px;
-		}
-		.info2 img{
-			margin-bottom: 30px;
-		}
-		.info2 p{
-			max-width: 90%;
-		}
-		.foot img {
-			width: ;
-		}
-		.slider{
-			max-width: 70%;
-			max-height: 380px;
-		}
-		.carru h3 {
-			font-size: 40px;
-			max-width: 99%;
-		}
-		.foot h3{
-			font-size: 20px;
-			text-align: center;
-		}
-		footer{
-			height: 250px;
-		}
-	}
-	@media (min-width: 769px) and (max-width: 1076px){
-		.info p{
-			font-size: 12px;
-		}
-		.info img {
-			height: 200px;
-			width: 290px;
-		}
-	}
-	@media (min-width: 1077px) and (max-width: 1290px){
-		.info p{
-			font-size: 15px;
-		}
-	}
-
-	/* Animación de fade-in */
+		/* Animación de fade-in */
 	@keyframes fadeIn {
 		0% { 
 			opacity: 0; 
@@ -637,7 +467,223 @@
 			opacity: 1;
 		}
 	}
-
+	
+		.head a {
+			font-size: 10px;
+			padding: 0;
+			margin: 0%;
+		}
+		.conteiner{
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+		}
+		.init{
+			height: 100vh;
+		}
+		h1{
+			font-size: 40px;
+		}
+		.inicio p{
+			font-size: 20px;
+		}
+		main h2{
+			font-size: 18px;
+			margin: 20px 0px 10px;
+			max-width: 98%;
+		}
+		.info {
+			display: flex;
+			align-items: center;
+			flex-direction:column;
+			margin: 10px 0px;
+			justify-content: center;
+		}
+		main .info img{
+			margin-bottom: 30px;
+			height: 150px;
+			width: 220px;
+		}
+		main .info p{
+			font-size: 12px;
+			max-width: 95%;
+		}
+		.info1{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			margin: 30px 0px;
+		}
+		main .info1 img{
+			margin-bottom: 30px;
+			height: 200px;
+			width: 290px;
+		}
+		.info1 p {
+			font-size: 12px;
+			max-width: 45rem;
+		}
+		.info2{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			margin: 30px 0px;
+		}
+		main .info2 img{
+			margin-bottom: 30px;
+			height: 220px;
+			width: 220px;
+		}
+		.info2 p{
+			font-size: 12px;
+			max-width: 95%;
+		}
+		main .info3 img{
+			height: 220px;
+			width: 220px;
+		}
+		.foot .icons img {
+			height: 24px;
+			width: 24px;
+			padding: 0;
+			margin: 0px 10px ;
+		}
+		.foot .icons2 img {
+			height: 24px;
+			width: 24px;
+			padding: 0;
+			margin: 0px 10px;
+		}
+		.slider{
+			max-width: 80%;
+			max-height: 250px;
+		}
+		.caption{
+			font-size: 12px;
+		}
+		.carru h3 {
+			font-size: 20px;
+			max-width: 99%;
+		}
+		.foot h3{
+			font-size: 10px;
+			text-align: center;
+		}
+		footer{
+			height: 200px;
+		}
+	.conteiner{
+		display: flex;
+		justify-content: end;
+	}
+	@media(min-width:768px){
+		.head p{
+			font-size: 10px;
+		}
+		.info{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+	}
+	@media(min-width:1024px){
+		.head a {
+			font-size: 25px;
+		}
+		h1{
+			font-size: 100px;
+		}
+		.conteiner {
+			display: flex;
+			justify-content: end;
+		}
+		.conteiner p{
+			font-size: 50px;
+		}
+		.inicio{
+			background-size: 172vh;
+		}
+		.init{
+			height: 100vh;
+		}
+		main h2{
+			font-size: 60px;
+			width: 100%;
+		}
+		.info{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+		main .info p{
+			max-width: 35rem ;
+			font-size: 20px ;
+		}
+		main .info1 img{
+			width:419px;
+			height: 290px;
+			margin: 0%;
+		}
+		main .info2 img{
+			width: 384px;
+			height: 385px;
+		}
+		main .info3 img{
+			width: 384px;
+			height: 385px;
+		}
+		
+		.info2{
+			display: flex;
+			flex-direction: row-reverse;
+		}
+		.carru h3 {
+			font-size: 60px;
+		}
+		.slider{
+			max-width: 60%;
+			max-height: 400px;
+		}
+		.foot h3{
+			font-size: 20px;
+		}
+		.foot .icons img {
+			height: 40px;
+			width: 40px;
+			padding: 0;
+			margin: 0px 10px ;
+		}
+		.foot .icons2 img {
+			height: 40px;
+			width: 40px;
+			padding: 0;
+			margin: 0px 10px ;
+		}
+	}
+	@media(min-width:1440px){
+		.inicio{
+			background-size: 200vh;
+		}
+		main h2{
+			font-size: 80px;
+		}
+		main .info p{
+			max-width: 45rem ;
+			font-size: 20px ;
+		}
+		.slider{
+			max-width: 60%;
+			max-height: 900px;
+		}
+		.carru h3{
+			font-size: 80px;
+		}
+	}
 </style>
 <script>
 	const fadeElements = document.querySelectorAll('.carru, .info, main h2, .info1, .info2');

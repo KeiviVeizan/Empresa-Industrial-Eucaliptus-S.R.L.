@@ -1,6 +1,22 @@
 ---
+const ExtraInformationCard = [
+  {
+    id:1,
+    title: "Nuestra Misión",
+    info:"Nuestra misión es aplicar esfuerzos en la producción de ácido sulfúrico, cumpliendo estándares de calidad con responsabilidad ambiental; a fin de generar beneficios que permitan mantener las prestaciones básicas y complementarias de COSSMIL para los miembros de las Fuerzas Armadas de la Nación.",
+    image:"/Empresa-Industrial-Eucaliptus-S.R.L./images/Mision.png"
+  },
+  {
+    id:2,
+    title:"Nuestra Visión",
+    info:"Ser una Empresa modelo de la Gerencia de Empresas de COSSMIL; con participación activa en el desarrollo económico, crecimiento en los mercados más competitivos y organizada con personal altamente calificado",
+    image:"/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img_vision.png"
+  }
 
+]
 ---
+
+
 <!-- about.astro -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +29,16 @@
 </head>
 <body>
   <header class="Encabezado">  
-    <nav>
-      <h3>
-        Empresa Industrial Eucaliptus S.R.L.
-      </h3>
-      <ul>
+    <nav class="header-all">
+      <div class="header-top">
+        <h3>
+          Empresa Industrial Eucaliptus S.R.L.
+        </h3>
+        <button class="header-btn">
+          <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/icon-menu.png" alt="Icon-Menu">
+        </button>
+      </div>
+      <ul class="header-menu">
         <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./about" class="about">Acerca de Nosotros</a></li>
         <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./product">Producto</a></li>
         <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./">Inicio</a></li>
@@ -31,33 +52,23 @@
       <img class="imag-izq" src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img3.png" alt="imagen3">
     </div>
     <article class="conteiner">
-      <div class="Mision_Vision">
-        <div class="Mision">
-          <h3>
-            <b>Nuestra Misión</b>
-          </h3>
-          <p>
-            Nuestra misión es aplicar esfuerzos en <br> la producción de ácido sulfúrico, <br> cumpliendo estándares de calidad con <br> responsabilidad ambiental; a fin de <br> generar beneficios que permitan <br> mantener las prestaciones básicas y 
-            <br> complementarias de COSSMIL para los <br> miembros de las Fuerzas Armadas de la <br> Nación.
-          </p>
-        </div>
-        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/Mision.png" alt="Imagen de la misión">
+      <div class="a">
+        {
+          ExtraInformationCard.map((ec)=>(
+          <div class={`information information${ec.id}`}>
+            <div class={`information-top information-top${ec.id}`}>
+              <h3>
+                {ec.title}
+              </h3>
+              <p>
+                {ec.info}
+              </p>
+            </div>
+            <img src={ec.image} alt="Imagen de mision y vision">
+          </div>
+          ))
+        }
       </div>  
-      <div class="Mision_Vision">
-        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img_vision.png" alt="Imagen de la visión">
-        <div class="vision">
-          <h3>
-            <b>
-              Nuestra Visión
-            </b>
-          </h3>
-          <p>
-            Ser una Empresa modelo de la Gerencia <br>
-            de Empresas de COSSMIL; con <br>
-             participación activa en el desarrollo <br> económico, crecimiento en los <br> mercados más competitivos y <br> organizada con personal altamente <br> calificado
-          </p>
-        </div>
-      </div>
     </article>
     
     <section class="section_clientes">
@@ -122,46 +133,43 @@
 			margin: 0;
 			background: linear-gradient(to bottom, #68778D, #ffffff);
 		}
-		ul{
-			list-style-type: none;
-			overflow: hidden;
-		}
-		li{
-			float: right;
-			padding: 20px;
-			transition: background-color, 2s;
-		}
-		li:hover{
-			background-color: rgba(0, 0, 0, 0.5);
-			color: white;
-		}
-    
-		li a{
-			text-decoration: none;
-			color: #1759AC;
-			padding: 10px;
-			font-family: "Archivo Black", sans-serif;
-			font-size: 24px;
-		}
-    .about{
-      color: #E2B155 !important;
+     .header-all{
+      padding: 20px 10px;
+      font-size: 20px;
+      background:linear-gradient(to bottom, #1f3d61 50%, #68778D ) ;
     }
-		li a:hover{
-			color: white;
-		}
-    .Encabezado nav{
+     .header-top{
       display: flex;
       justify-content: space-between;
+      align-items: center ;
+      animation: slideInFromLeft 1s ease-out forwards;
+    }
+     .header-top h3{
+      font-size: 20px;
+      color: white;
+      font-family: "Myriad Pro Regular";
+      max-width: 12rem;
 
     }
-    .Encabezado h3{
-      padding: 20px;
-      color: white;
-      font-size: 30px;
-      font-family: "Archivo Black",sans-serif;
+     .header-btn{
+      background-color: transparent;
+      border: transparent;
+
     }
-    .Encabezado{
-      animation: slideInFromTop 1s ease-out forwards;
+     .header-menu{
+      display: none;
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    .header-menu li{
+      margin: 10px;
+    }
+    .header-menu a{
+      text-decoration: none;
+      color: #ffffff;  
+          
     }
     .cont{
       display: flex;
@@ -177,7 +185,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .Mision_Vision{
+    .a{
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -187,24 +195,59 @@
 			transform: translateY(50px);
       transition: opacity 1s ease-out, transform 1s ease-out;
     } 
-    .Mision_Vision.visible{
+    .a.visible{
       opacity: 1;
       transform: translateY(0);
     }
-    .Mision_Vision h3{
+    .a h3{
       text-align: center;
       font-family: "Myriad Pro Regular", sans-serif;
       font-size: 50px;
       line-height: 3;
     }
-    .Mision_Vision p{
+    .a p{
       text-align: center;
       font-size: 24px;
       font-family: "Myriad Regular", sans-serif;
+      max-width: 45rem;
     }
-    .Mision_Vision img {
+    .a img {
+      width: 584px;
+      height: 585px;
       border-radius: 30px;
       box-shadow: 20px 20px 90px rgb(76, 71, 71);
+    }
+    .a{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin: 80px 0px;
+      opacity: 0;
+			transform: translateY(50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    } 
+    .a.visible{
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .a h3{
+      text-align: center;
+      font-family: "Myriad Pro Regular", sans-serif;
+      font-size: 50px;
+      line-height: 3;
+    }
+    .a p{
+      text-align: center;
+      font-size: 24px;
+      font-family: "Myriad Regular", sans-serif;
+      max-width: 45rem;
+    }
+    .a img {
+      border-radius: 30px;
+      box-shadow: 20px 20px 90px rgb(76, 71, 71);
+      width: 584px;
+      height: 585px;
     }
     footer{
         background-color: #1759AC;
@@ -257,25 +300,22 @@
       height: 623px;
       object-fit: cover;
       border-radius: 10px;
-      margin-top: 80px;
+      margin-top: 40px;
     }
-    .Mision_Vision img{
+    .a img{
       width: 637px;
       height: 483px;
     }
 
     .conteiner{
-      margin: 80px 0px;
+      margin: 60px 0px;
     }
     .imag-izq{
+      margin-top: 0px;
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;
       transition: transform, 500ms;
       filter: brightness(50%);
-    }
-    .imag-der{
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
     }
     .imag-izq:hover{
       transform: scale(1.05);
@@ -335,9 +375,102 @@
 				opacity: 1;
 			}
 		}
+    
+      .cont img{
+        width: 100px;
+        height: 200px;
+        object-fit: cover;
+      }
+      .cont{
+        gap: 5px;
+        margin-bottom: 20px;
+      }
+      
+      .a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top:0px;
+      }
+      .a img{
+        width:250px;
+        height: 250px;
+        margin-top: 30px;
+      }
+      .a h3{
+        font-size: 30px;
+      }
+      .a p{
+        font-size: 20px;
+        max-width: 98%;
+        text-align: center;
+      }
+      .a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+      }
+      .a img{
+        width: 250px;
+        height: 250px;
+        margin-top: 30px;
+      }
+      .a p{
+        font-size: 20px;
+        max-width: 98%;
+        text-align: center;
+      }
+      .a h3{
+        font-size: 30px;
+      }
+      .section_clientes h2{
+        font-size: 30px;
+      }
+      .clientes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .clientes img{
+        width: 40px;
+        height: 30px;
+        margin: 10px;
+      }
+      footer{
+        height: 220px;
+      }
+      footer h3{
+        font-size: 10px;
+        text-align: center;
+      }
+      .foot img{
+        padding: 0%;
+        width: 24px;
+        height: 24px;
+      }
+      @media (min-width: 1024px){
+        .header-all{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          background:none;
+        }
+        .header-top h3{
+          max-width: 100%;
+        }
+        .header-menu {
+          flex-direction: row;
+        }
+        .header-btn{
+          display: none;
+        }
+      }
   </style>
   <script>
-      const fadeElements = document.querySelectorAll('.cont, .Mision_Vision, .section_clientes');
+      const fadeElements = document.querySelectorAll('.cont, .a, .Mision_Vision1, .section_clientes');
       const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -353,6 +486,35 @@
       fadeElements.forEach(element => {
         observer.observe(element);
         });
+
+              //Para el boton en mobile header 
+              const header_btn = document.querySelector('.header-btn');
+              const header_menu = document.querySelector('.header-menu');
+              header_btn.addEventListener('click', () => {
+                header_menu.style.display = header_menu.style.display === "block" ? "none" : "block";
+              });
+              window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024) {
+                  header_menu.style.display = "flex"; 
+                } else {
+                  header_menu.style.display = "none"; 
+                }
+              });
+              window.addEventListener('load', () => {
+                if (window.innerWidth >= 1024) {
+                  header_menu.style.display = "flex"; 
+                } else {
+                  header_menu.style.display = "none"; 
+                }
+              });
+              document.querySelectorAll('.header-menu a').forEach(item => {
+                item.addEventListener('click', () => {
+                  if (window.innerWidth < 1024) {
+                    header_menu.style.display = "none"; 
+                  }
+                });
+              });
+
   </script>
 </body>
 </html>
