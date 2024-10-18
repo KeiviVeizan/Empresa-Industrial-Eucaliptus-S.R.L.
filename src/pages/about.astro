@@ -39,7 +39,7 @@ const ExtraInformationCard = [
         </button>
       </div>
       <ul class="header-menu">
-        <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./about" class="about">Acerca de Nosotros</a></li>
+        <li class="about"><a href="/Empresa-Industrial-Eucaliptus-S.R.L./about" class="about">Acerca de Nosotros</a></li>
         <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./product">Producto</a></li>
         <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./">Inicio</a></li>
       </ul>
@@ -52,7 +52,7 @@ const ExtraInformationCard = [
       <img class="imag-izq" src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img3.png" alt="imagen3">
     </div>
     <article class="conteiner">
-      <div class="a">
+      <div class="information-all">
         {
           ExtraInformationCard.map((ec)=>(
           <div class={`information information${ec.id}`}>
@@ -174,81 +174,54 @@ const ExtraInformationCard = [
     .cont{
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 5px;
       animation: slideInFromBottom 1s ease-out forwards;
       opacity: 0;
 			transform: translateY(50px);
       transition: opacity 1s ease-out, transform 1s ease-out;
-      
+      margin-bottom: 20px;
     }
     .cont.visible{
       opacity: 1;
       transform: translateY(0);
     }
-    .a{
+    .cont img{
+      width: 100px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+    .information{
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      margin: 80px 0px;
+      text-align: center;
       opacity: 0;
 			transform: translateY(50px);
       transition: opacity 1s ease-out, transform 1s ease-out;
+      font-family: "Myriad Regular";
     } 
-    .a.visible{
+    .information.visible{
       opacity: 1;
       transform: translateY(0);
     }
-    .a h3{
-      text-align: center;
-      font-family: "Myriad Pro Regular", sans-serif;
-      font-size: 50px;
-      line-height: 3;
+    .information-top{
+      max-width: 18rem;
     }
-    .a p{
-      text-align: center;
-      font-size: 24px;
-      font-family: "Myriad Regular", sans-serif;
-      max-width: 45rem;
+    .information-top h3{
+      font-size: 20px;
+      line-height: 5rem;
     }
-    .a img {
-      width: 584px;
-      height: 585px;
-      border-radius: 30px;
+    .information img {
+      width: 220px;
+      height: 220px;
+      border-radius: 10px;
+      margin: 20px 0px;
       box-shadow: 20px 20px 90px rgb(76, 71, 71);
     }
-    .a{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      margin: 80px 0px;
-      opacity: 0;
-			transform: translateY(50px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    } 
-    .a.visible{
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .a h3{
-      text-align: center;
-      font-family: "Myriad Pro Regular", sans-serif;
-      font-size: 50px;
-      line-height: 3;
-    }
-    .a p{
-      text-align: center;
-      font-size: 24px;
-      font-family: "Myriad Regular", sans-serif;
-      max-width: 45rem;
-    }
-    .a img {
-      border-radius: 30px;
-      box-shadow: 20px 20px 90px rgb(76, 71, 71);
-      width: 584px;
-      height: 585px;
-    }
+
     footer{
         background-color: #1759AC;
         height: 319px;
@@ -294,14 +267,7 @@ const ExtraInformationCard = [
 		.icons img:hover{
       transform: scale(1.5);
 		}
-    
-    .cont img{
-      width: 415px;
-      height: 623px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-top: 40px;
-    }
+  
     .a img{
       width: 637px;
       height: 483px;
@@ -354,7 +320,16 @@ const ExtraInformationCard = [
 
       }
 
-
+    @keyframes slideInFromLeft {
+			0% {
+				transform: translateX(-100%);
+				opacity: 0;
+			}
+			100% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
     @keyframes slideInFromTop {
 			0% {
 				transform: translateX(-100%);
@@ -375,58 +350,10 @@ const ExtraInformationCard = [
 				opacity: 1;
 			}
 		}
-    
-      .cont img{
-        width: 100px;
-        height: 200px;
-        object-fit: cover;
-      }
-      .cont{
-        gap: 5px;
-        margin-bottom: 20px;
-      }
       
-      .a{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top:0px;
-      }
-      .a img{
-        width:250px;
-        height: 250px;
-        margin-top: 30px;
-      }
-      .a h3{
-        font-size: 30px;
-      }
-      .a p{
-        font-size: 20px;
-        max-width: 98%;
-        text-align: center;
-      }
-      .a{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column-reverse;
-      }
-      .a img{
-        width: 250px;
-        height: 250px;
-        margin-top: 30px;
-      }
-      .a p{
-        font-size: 20px;
-        max-width: 98%;
-        text-align: center;
-      }
-      .a h3{
-        font-size: 30px;
-      }
+  
       .section_clientes h2{
-        font-size: 30px;
+        font-size: 18px;
       }
       .clientes{
         display: flex;
@@ -451,6 +378,55 @@ const ExtraInformationCard = [
         width: 24px;
         height: 24px;
       }
+      .foot .icons img {
+			  height: 24px;
+			  width: 24px;
+			  padding: 0;
+			  margin: 0px 10px ;
+	  	}
+		  .foot .icons2 img {
+			  height: 24px;
+			  width: 24px;
+			  padding: 0;
+			  margin: 0px 10px;
+		  }
+      @media(min-width:355px){
+        .information-top{
+          max-width: 20rem;
+        }
+      }
+      @media(min-width:425px){
+        .information-top{
+          max-width: 25rem;
+        }
+      }
+      @media(min-width:768px){
+        .cont{
+          gap: 5px;
+        }
+        .cont img{
+          width: 200px;
+          height: 300px;
+        }
+        .information-top{
+          max-width: 45rem;
+        }
+        .information-top h3{
+          font-size: 30px;
+        }
+        .information-top p{
+          font-size: 20px;
+        }
+        .information img{
+          width: 384px;
+          height: 350px;
+        }
+        .clientes img{
+          width: 70px;
+          height: 50px;
+          margin: 10px;
+        }
+      }
       @media (min-width: 1024px){
         .header-all{
           display: flex;
@@ -460,17 +436,88 @@ const ExtraInformationCard = [
         }
         .header-top h3{
           max-width: 100%;
+          font-family: "Archivo Black", sans-serif;
+          font-size: 20px;
         }
         .header-menu {
           flex-direction: row;
         }
+        .header-menu a{
+          font-family: "Archivo Black", sans-serif;
+          font-size: 20px;
+          color: #1759AC;
+        }
+        .about a{
+          color: #E2B155;
+        }
         .header-btn{
           display: none;
+        }
+        .cont{
+          gap: 15px;
+        }
+        .cont img{
+          width: 300px;
+          height: 500px;
+        }
+        .information1{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+        .information p,h3{
+          max-width: 25rem;
+        }
+        .information img{
+          border-radius: 30px;
+        }
+        .information2{
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+        .section_clientes h2{
+          font-size: 80px;
+        }
+        .clientes{
+          max-width: 70%;
+        }
+        .clientes img{
+          width: 80px;
+          height: 70px;
+         margin: 20px;
+        }
+        .foot h3{
+			    font-size: 20px;
+		    }
+		    .foot .icons img {
+		    	height: 40px;
+			    width: 40px;
+		    	padding: 0;
+			    margin: 0px 10px ;
+		    }   
+	  	.foot .icons2 img {
+		    	height: 40px;
+		    	width: 40px;
+		    	padding: 0;
+		    	margin: 0px 10px ;
+	    	}
+      }
+      @media(min-width:1440px){
+        .cont{
+          gap: 25px;
+        }
+        .cont img{
+          width: 415px;
+          height: 623px;
+          border-radius: 30px;
         }
       }
   </style>
   <script>
-      const fadeElements = document.querySelectorAll('.cont, .a, .Mision_Vision1, .section_clientes');
+      const fadeElements = document.querySelectorAll('.cont, .information, .section_clientes');
       const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -486,34 +533,35 @@ const ExtraInformationCard = [
       fadeElements.forEach(element => {
         observer.observe(element);
         });
-
-              //Para el boton en mobile header 
-              const header_btn = document.querySelector('.header-btn');
-              const header_menu = document.querySelector('.header-menu');
-              header_btn.addEventListener('click', () => {
-                header_menu.style.display = header_menu.style.display === "block" ? "none" : "block";
-              });
-              window.addEventListener('resize', () => {
-                if (window.innerWidth >= 1024) {
-                  header_menu.style.display = "flex"; 
-                } else {
-                  header_menu.style.display = "none"; 
-                }
-              });
-              window.addEventListener('load', () => {
-                if (window.innerWidth >= 1024) {
-                  header_menu.style.display = "flex"; 
-                } else {
-                  header_menu.style.display = "none"; 
-                }
-              });
-              document.querySelectorAll('.header-menu a').forEach(item => {
-                item.addEventListener('click', () => {
-                  if (window.innerWidth < 1024) {
-                    header_menu.style.display = "none"; 
-                  }
-                });
-              });
+      //Para el boton en mobile header 
+        const header_btn = document.querySelector('.header-btn');
+        const header_menu = document.querySelector('.header-menu');
+        header_btn.addEventListener('click', () => {
+          header_menu.style.display = header_menu.style.display === "block" ? "none" : "block";
+        });
+        window.addEventListener('resize', () => {
+          if (window.innerWidth >= 1024) {
+            header_menu.style.display = "flex"; 
+          } else {
+            header_menu.style.display = "none"; 
+          }
+        });
+        window.addEventListener('load', () => {
+            if (window.innerWidth >= 1024) {
+                header_menu.style.display = "flex"; 
+            } else {
+                header_menu.style.display = "none"; 
+            }
+        });
+        
+        document.querySelectorAll('.header-menu a').forEach(item => {
+          item.addEventListener('click', () => {
+            if (window.innerWidth < 1024) {
+              header_menu.style.display = "none"; 
+            }
+         });
+     });
+     
 
   </script>
 </body>

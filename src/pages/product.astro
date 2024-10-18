@@ -41,7 +41,7 @@ import { object } from "astro/zod"
             "Manejo cuidadoso para evitar derrames",
             "Si se produce un derrame, limpia inmediatamente con los materiales absorbentes adecuados siguiendo los procedimientos establecidos.",
           ],
-    info2:"Recuerda que una correcta gestión del ácido sulfúrico no solo protege tu integridad física, sino también previene impactos negativos en el medio ambiente.",
+    extra_info:"Recuerda que una correcta gestión del ácido sulfúrico no solo protege tu integridad física, sino también previene impactos negativos en el medio ambiente.",
     image:"/Empresa-Industrial-Eucaliptus-S.R.L./images/Ácido_sulfúricoH2SO4.jpeg"
   }
     
@@ -69,7 +69,7 @@ import { object } from "astro/zod"
         </div>
         <ul class="header-menu">
           <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./about" class="about">Acerca de Nosotros</a></li>
-          <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./product">Producto</a></li>
+          <li class="product"><a href="/Empresa-Industrial-Eucaliptus-S.R.L./product">Producto</a></li>
           <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./">Inicio</a></li>
         </ul>
       </nav>
@@ -92,9 +92,19 @@ import { object } from "astro/zod"
               <h3>
               {ec.title}
              </h3>
-             <p>{ec.info}</p>
-             <li>{ec.list}</li>
-             <p>{ec.info2}</p>
+             <p>
+              {ec.info}
+             </p>
+             <ul>
+              {
+              ec.list?.map((lis)=>(
+                <li>{lis}</li>
+              ))
+              }
+             </ul>
+             <p>
+              {ec.extra_info}
+            </p>             
             </div>
             <img src={ec.image} alt="Imagen de la empresa">
           </div>
@@ -197,7 +207,7 @@ import { object } from "astro/zod"
         font-family: "Myriad Pro Regular", sans-serif;
         font-size: 20px;
         display: grid;
-        top: 23px;
+        top: 23px;text-align: center;
       }
       .information{
         display: flex;
@@ -233,8 +243,8 @@ import { object } from "astro/zod"
         max-width: 15rem;
       }
       .information img{
-        width: 150px;
-        height: 150px;
+        width: 220px;
+        height: 220px;
         border-radius: 10px;
         box-shadow: 10px 20px 100px #1759AC;
         margin: 20px 0px;
@@ -301,15 +311,17 @@ import { object } from "astro/zod"
           max-width: 20rem;
         }
       }
-      @media (min-width: 768px){
+      @media (min-width: 658px){
         .header-top h3{
           max-width: 45rem;
         }
         .head h2{
-          font-size: 50px;
+          font-size: 40px;
+          top:60px;
+          text-align: center;
         }
         .head img{
-          max-height: 110px;
+          max-height: 180px;
         }
         .information-top {
           max-width: 45rem;
@@ -398,9 +410,19 @@ import { object } from "astro/zod"
         }
         .header-top h3{
           max-width: 100%;
+          font-family: "Archivo Black", sans-serif;
+          font-size: 20px;
         }
         .header-menu {
           flex-direction: row;
+        }
+        .header-menu a{
+          font-family: "Archivo Black", sans-serif;
+          font-size: 20px;
+          color: #1759AC;
+        }
+        .product a{
+          color: #E2B155;
         }
         .header-btn{
           display: none;
@@ -451,8 +473,32 @@ import { object } from "astro/zod"
           width: 300px;
           height: 400px;
         }
+        .foot h3{
+		    	font-size: 20px;
+    		}
+		    .foot .icons img {
+		    	height: 40px;
+		    	width: 40px;
+	    		padding: 0;
+	    		margin: 0px 10px ;
+	    	}
+	    	.foot .icons2 img {
+			    height: 40px;
+		    	width: 40px;
+		    	padding: 0;
+		    	margin: 0px 10px ;
+	    	}
+        footer {
+          min-height: 250px;
+        }
       }
       @media (min-width: 1440px){
+        .header-menu a{
+          font-size: 25px;
+        }
+        .header-top h3{
+          font-size: 25px;
+        }
         .information p{
           font-size: 20px;
         }
@@ -477,9 +523,9 @@ import { object } from "astro/zod"
             justify-content: space-evenly;
           }
           .information1, .information3 {
-            background-color: rgb(221, 206, 41);
+            background-color: #cbe1ec;
             border-radius: 30px;
-            box-shadow: 30px 20px 20px 1px #1759AC;
+            box-shadow: 30px 20px 20px 1px rgb(145, 135, 135);
           }
           .information p{
             max-width: 700rem;
