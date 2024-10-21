@@ -46,11 +46,17 @@ const ExtraInformationCard = [
     </nav>
   </header>
   <main>
-    <div class="cont">
-      <img class="imag-izq" src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img.png" alt="imagen1">
-      <img class="imag-izq" src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img2.png" alt="imagen2">
-      <img class="imag-izq" src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img3.png" alt="imagen3">
-    </div>
+    <section class="cont-img">
+      <div class="cont">
+        <img class="imag-izq" src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img.png" alt="imagen1">
+        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img2.png" alt="imagen2">
+        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img3.png" alt="imagen3">
+        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img4.jpg" alt="Imagen4">
+        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img5.jpg" alt="Image5">
+        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img6.jpg" alt="Imagen6">
+        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page2_img7.jpg" alt="Imagen7">
+      </div>
+    </section>
     <article class="conteiner">
       <div class="information-all">
         {
@@ -132,6 +138,7 @@ const ExtraInformationCard = [
 			height: all;
 			margin: 0;
 			background: linear-gradient(to bottom, #68778D, #ffffff);
+      cursor: url('/Empresa-Industrial-Eucaliptus-S.R.L./images/cursor.png') 10 10, auto;
 		}
      .header-all{
       padding: 20px 10px;
@@ -171,26 +178,36 @@ const ExtraInformationCard = [
       color: #ffffff;  
           
     }
-    .cont{
+    .cont-img{
       display: flex;
       justify-content: center;
-      gap: 5px;
-      animation: slideInFromBottom 1s ease-out forwards;
-      opacity: 0;
-			transform: translateY(50px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
+    }
+    .cont{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 300px;
+        margin-bottom: -80px;
+    }
+    .cont img{
+        width: 0px;
+        height: 200px;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: .8;
+        transition: .5s ease;
+    }
+    .cont img:hover {
+        cursor: crosshair;
+        width: 90px;
+        opacity: 1;
+        filter: contrast(120%);
     }
     .cont.visible{
       opacity: 1;
       transform: translateY(0);
-    }
-    .cont img{
-      width: 100px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-top: 40px;
     }
     .information{
       display: flex;
@@ -275,17 +292,6 @@ const ExtraInformationCard = [
 
     .conteiner{
       margin: 60px 0px;
-    }
-    .imag-izq{
-      margin-top: 0px;
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
-      transition: transform, 500ms;
-      filter: brightness(50%);
-    }
-    .imag-izq:hover{
-      transform: scale(1.05);
-      filter: brightness(100%)
     }
     .section_clientes{
         text-align: center;
@@ -391,22 +397,31 @@ const ExtraInformationCard = [
 			  margin: 0px 10px;
 		  }
       @media(min-width:355px){
+        .cont{
+          width: 320px;
+        }
         .information-top{
           max-width: 20rem;
         }
       }
       @media(min-width:425px){
+        .cont{
+          width: 350px;
+        }
         .information-top{
           max-width: 25rem;
         }
       }
       @media(min-width:768px){
         .cont{
-          gap: 5px;
+          width: 700px;
+          height: 500px;
         }
         .cont img{
+          height: 350px;
+        }
+        .cont img:hover{
           width: 200px;
-          height: 300px;
         }
         .information-top{
           max-width: 45rem;
@@ -454,11 +469,15 @@ const ExtraInformationCard = [
           display: none;
         }
         .cont{
-          gap: 15px;
+          width: 900px;
+          height: 500px;
+          margin-top: 30px;
         }
         .cont img{
-          width: 300px;
           height: 500px;
+        }
+        .cont img:hover{
+          width: 250px;
         }
         .information1{
           display: flex;
@@ -506,13 +525,59 @@ const ExtraInformationCard = [
 	    	}
       }
       @media(min-width:1440px){
+        .header-top h3{
+          font-size: 25px;
+        }
+        .header-menu a{
+          font-size: 25px;
+        }
         .cont{
-          gap: 25px;
+          width: 1300px;
+          height: 500px;
+          margin-top: 60px;
         }
         .cont img{
-          width: 415px;
-          height: 623px;
-          border-radius: 30px;
+          height: 600px;
+        }
+        .cont img:hover{
+          width: 200px;
+        }
+        .information{
+          margin-top: 120px;
+        }
+        .information h3{
+          text-align: center;
+          font-size: 50px;
+        }
+        .information p{
+          max-width: 40rem;
+        }
+        .information-top{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+        }
+
+      }
+      @media(min-width:2560px){
+        .cont{
+          width: 1700px;
+          height: 800px;
+          margin-top: 60px;
+        }
+        .cont img{
+          height: 800px;
+        }
+        .cont img:hover{
+          width: 400px;
+        }
+        .header-top h3{
+          font-size: 35px;
+        }
+        .header-menu a{
+          font-size: 35px;
         }
       }
   </style>
