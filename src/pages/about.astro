@@ -28,6 +28,19 @@ const ExtraInformationCard = [
   <title>Acerca de Nosotros</title>
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <img src="/images/Logo-Empresa.svg" alt="Logo Empresa Industrial Eucaliptus" class="loader-logo">
+      <div class="loader-text">Cargando</div>
+      <div class="loader-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
   <header class="Encabezado">  
     <nav class="header-all">
       <div class="header-top">
@@ -129,6 +142,88 @@ const ExtraInformationCard = [
     </footer>
   </main>
   <style>
+    /* Loading Screen Styles */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1759AC, #68778D);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+
+    .loader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .loader-logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      filter: brightness(1.1);
+    }
+
+    .loader-text {
+      color: white;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 24px;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .loader-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .loader-dots span {
+      width: 12px;
+      height: 12px;
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: dotPulse 1.5s ease-in-out infinite;
+    }
+
+    .loader-dots span:nth-child(1) { animation-delay: 0s; }
+    .loader-dots span:nth-child(2) { animation-delay: 0.5s; }
+    .loader-dots span:nth-child(3) { animation-delay: 1s; }
+
+    @keyframes dotPulse {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+    }
+
+    /* Hide main content while loading */
+    body.loading header,
+    body.loading main,
+    body.loading footer {
+      visibility: hidden;
+    }
+
     *{
 			margin: 0;
 			padding: 0;
@@ -585,6 +680,30 @@ const ExtraInformationCard = [
       }
   </style>
   <script>
+      // Loading screen functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        // Add loading class to body initially
+        document.body.classList.add('loading');
+
+        // Hide loader after everything is loaded
+        window.addEventListener('load', function() {
+          const loader = document.getElementById('loader');
+
+          // Add a small delay to ensure smooth transition
+          setTimeout(() => {
+            loader.classList.add('fade-out');
+            document.body.classList.remove('loading');
+
+            // Remove loader from DOM after animation
+            setTimeout(() => {
+              if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+              }
+            }, 500);
+          }, 800); // Show loader for at least 800ms
+        });
+      });
+
       const fadeElements = document.querySelectorAll('.cont, .information, .section_clientes');
       const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
