@@ -6,7 +6,7 @@ import { object } from "astro/zod"
     id:1,
     title: "¿Qué producimos?",
     info: "En la Empresa Industrial Eucaliptus SRL somos líderes en la producción de ácido sulfúrico de alta calidad. Este compuesto químico, esencial para una amplia gama de industrias, es el resultado de un riguroso proceso de fabricación que garantiza su pureza y eficiencia.",
-    image: "/Empresa-Industrial-Eucaliptus-S.R.L./images/page3_img_producto_historia.png"
+    image: "/images/page3_img_producto_historia.png"
   },
   {
     id:2,
@@ -16,7 +16,7 @@ import { object } from "astro/zod"
             "Conversión Catalítica: El SO₂ se oxida a trióxido de azufre (SO₃) en presencia de un catalizador de pentóxido de vanadio en un reactor de múltiples etapas.",
             "Absorción del SO₃: El SO₃ se absorbe en ácido sulfúrico concentrado para formar ácido sulfúrico (óleum).",
             "Dilución del Ácido: El óleum se diluye con agua para obtener ácido sulfúrico H2SO4 al 98.5% de concentración."],
-    image:"/Empresa-Industrial-Eucaliptus-S.R.L./images/page3_img_producto.png"
+    image:"/images/page3_img_producto.png"
   },
   {
     id:3,
@@ -26,7 +26,7 @@ import { object } from "astro/zod"
           "Además de su uso en la fabricación de productos químicos como fertilizantes, explosivos y detergentes, el ácido sulfúrico también tiene aplicaciones en la industria metalúrgica para la refinación de metales como el cobre y el zinc.",
           "La producción responsable y el manejo adecuado del ácido sulfúrico son cruciales para prevenir impactos negativos en la salud humana y en el medio ambiente. Es indispensable contar con instalaciones seguras para su almacenamiento y manipulación.",
           ],
-    image:"/Empresa-Industrial-Eucaliptus-S.R.L./images/acido_sulfurico.jpg",
+    image:"/images/acido_sulfurico.jpg",
   },
   {
     id:4,
@@ -42,7 +42,7 @@ import { object } from "astro/zod"
             "Si se produce un derrame, limpia inmediatamente con los materiales absorbentes adecuados siguiendo los procedimientos establecidos.",
           ],
     extra_info:"Recuerda que una correcta gestión del ácido sulfúrico no solo protege tu integridad física, sino también previene impactos negativos en el medio ambiente.",
-    image:"/Empresa-Industrial-Eucaliptus-S.R.L./images/Ácido_sulfúricoH2SO4.jpeg"
+    image:"/images/Ácido_sulfúricoH2SO4.jpeg"
   }
     
   ]
@@ -64,22 +64,22 @@ import { object } from "astro/zod"
             Empresa Industrial Eucaliptus S.R.L.
           </h3>
           <button class="header-btn">
-            <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/icon-menu.png" alt="Icon-Menu">
+            <img src="/images/icon-menu.png" alt="Icon-Menu">
           </button>
         </div>
         <ul class="header-menu">
-          <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./about" class="about">Acerca de Nosotros</a></li>
-          <li class="product"><a href="/Empresa-Industrial-Eucaliptus-S.R.L./product">Producto</a></li>
-          <li><a href="/Empresa-Industrial-Eucaliptus-S.R.L./">Inicio</a></li>
+          <li><a href="/about" class="about">Acerca de Nosotros</a></li>
+          <li class="product"><a href="/product">Producto</a></li>
+          <li><a href="/">Inicio</a></li>
         </ul>
       </nav>
     </header>
-    <main>
+    <main class="head-main">
       <section class="head">
         <h2>
           ACERCA DE NUESTRO PRODUCTO 
         </h2>
-        <img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/page3_img.png" alt="imagen principal">
+        <img src="/images/page3_img.png" alt="imagen principal">
       </section>
     </main>
     <section class="contenidoo">
@@ -118,9 +118,9 @@ import { object } from "astro/zod"
           <b>Ubicanos y Contactanos por:</b>
         </h3>
         <div class="icons">
-          <a  href="https://wa.link/5x7v06" target="_blank"><img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/icon_whatsapp.svg" alt="Whatsapp"></a>
-          <a  href="mailto:jcomercial@empresa-eucaliptus.com ?subject=Consulta&body=Hola,%20quiero%20hacerte%20una%20consulta." target="_blank"><img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/icon_mail.svg" alt="Mail"></a>
-          <a  href="https://maps.app.goo.gl/KvypU8gvzEVvwjGD6" target="_blank"><img src="/Empresa-Industrial-Eucaliptus-S.R.L./images/icon_maps.svg" alt="Maps"></a>
+          <a  href="https://wa.link/5x7v06" target="_blank"><img src="/images/icon_whatsapp.svg" alt="Whatsapp"></a>
+          <a  href="mailto:jcomercial@empresa-eucaliptus.com ?subject=Consulta&body=Hola,%20quiero%20hacerte%20una%20consulta." target="_blank"><img src="/images/icon_mail.svg" alt="Mail"></a>
+          <a  href="https://maps.app.goo.gl/KvypU8gvzEVvwjGD6" target="_blank"><img src="/images/icon_maps.svg" alt="Maps"></a>
         </div>
         </div>
         <div class="foot">
@@ -184,13 +184,16 @@ import { object } from "astro/zod"
       color: #ffffff;  
           
     }
+    .head-main{
+      margin: 1.5rem 0rem;
+    }
       .head{
         position: relative;
         display: flex;
         justify-content: center;
-        align-content: center;
-        margin-top: 0px;
-        max-height: 70px
+        align-items: center;
+        margin-top: ;
+        max-height: 70px;
         animation: slideInFromLeft 1s ease-out forwards;
       }
 			
@@ -207,9 +210,13 @@ import { object } from "astro/zod"
         color: white;
         font-family: "Myriad Pro Regular", sans-serif;
         font-size: 17px;
-        display: grid;
-        top: 30px;
         text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        margin: 0;
+        padding: 0 10px;
       }
       .information{
         display: flex;
@@ -319,8 +326,6 @@ import { object } from "astro/zod"
         }
         .head h2{
           font-size: 40px;
-          top:60px;
-          text-align: center;
         }
         .head img{
           max-height: 180px;
@@ -433,7 +438,6 @@ import { object } from "astro/zod"
           margin: 50px 0px;
         }
         .head h2{
-          top: 85px;
           font-size: 70px;
         }
         .head img{
@@ -574,26 +578,26 @@ import { object } from "astro/zod"
               const header_btn = document.querySelector('.header-btn');
               const header_menu = document.querySelector('.header-menu');
               header_btn.addEventListener('click', () => {
-                header_menu.style.display = header_menu.style.display === "block" ? "none" : "block";
+                header_menu['style']['display'] = header_menu['style']['display'] === "block" ? "none" : "block";
               });
               window.addEventListener('resize', () => {
                 if (window.innerWidth >= 1024) {
-                  header_menu.style.display = "flex"; 
+                  header_menu['style']['display'] = "flex";
                 } else {
-                  header_menu.style.display = "none"; 
+                  header_menu['style']['display'] = "none";
                 }
               });
               window.addEventListener('load', () => {
                 if (window.innerWidth >= 1024) {
-                  header_menu.style.display = "flex"; 
+                  header_menu['style']['display'] = "flex";
                 } else {
-                  header_menu.style.display = "none"; 
+                  header_menu['style']['display'] = "none";
                 }
               });
               document.querySelectorAll('.header-menu a').forEach(item => {
                 item.addEventListener('click', () => {
                   if (window.innerWidth < 1024) {
-                    header_menu.style.display = "none"; 
+                    header_menu['style']['display'] = "none";
                   }
                 });
               });
